@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
+    </dependencies>
+    <scenes>
+        <!--菜单-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller identifier="MenuController" title="菜单" id="AgC-eL-Hgc" customClass="MenuController">
+                    <items>
+                        <table alignment="left" id="vAw-2Z-0bu">
+                            <items>
+                                <tableRow identifier="RowType2Controller" id="K4A-Ob-XOo" customClass="RowType2Controller">
+                                    <group key="rootItem" width="1" height="41.5" alignment="left" id="Bh9-ID-AfH">
+                                        <items>
+                                            <label alignment="left" verticalAlignment="center" text="Label" textAlignment="left" id="yUy-Zn-szd">
+                                                <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="titleLabel" destination="yUy-Zn-szd" id="OaS-pR-5Ax"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="vAw-2Z-0bu" id="oNt-a1-9yt"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="146" y="129"/>
+        </scene>
+        <!--聊天-->
+        <scene sceneID="Len-lO-9n0">
+            <objects>
+                <controller identifier="ChatController" title="聊天" id="zQ9-dj-aTD" customClass="ChatController">
+                    <items>
+                        <table alignment="left" id="hs6-at-NJB">
+                            <items>
+                                <tableRow identifier="ReceiveTextCell" id="2zZ-uG-uIx" customClass="RowTypeMessageController">
+                                    <group key="rootItem" width="1" alignment="left" id="bsK-a5-ffm">
+                                        <items>
+                                            <label alignment="left" verticalAlignment="center" text="Label" numberOfLines="5" id="IzH-95-GnZ"/>
+                                        </items>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="titleLabel" destination="IzH-95-GnZ" id="vZ4-mL-qjW"/>
+                                    </connections>
+                                </tableRow>
+                                <tableRow identifier="SendTextCell" id="vP0-1l-por" customClass="RowTypeMessageController">
+                                    <group key="rootItem" width="1" alignment="left" id="khb-Ne-6d1">
+                                        <items>
+                                            <label alignment="right" verticalAlignment="center" text="Label" numberOfLines="5" id="dRJ-Q6-dOw"/>
+                                        </items>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="titleLabel" destination="dRJ-Q6-dOw" id="iD6-T1-ySO"/>
+                                    </connections>
+                                </tableRow>
+                                <tableRow identifier="ReceiveImageCell" id="Doz-MK-vNy" customClass="RowTypeMessageController">
+                                    <group key="rootItem" width="1" alignment="left" id="Gh7-2s-5y7">
+                                        <items>
+                                            <imageView alignment="left" verticalAlignment="center" id="fnC-hH-017"/>
+                                        </items>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="imageView" destination="fnC-hH-017" id="qUa-ec-iRb"/>
+                                    </connections>
+                                </tableRow>
+                                <tableRow identifier="SendImageCell" id="wzz-Zw-lfv" customClass="RowTypeMessageController">
+                                    <group key="rootItem" width="1" alignment="left" id="gDp-UL-doy">
+                                        <items>
+                                            <imageView alignment="right" verticalAlignment="center" id="wQf-3I-YtY"/>
+                                        </items>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="imageView" destination="wQf-3I-YtY" id="TeY-sQ-0p1"/>
+                                    </connections>
+                                </tableRow>
+                                <tableRow identifier="ReceiveAudioCell" id="Fgi-b0-4q1" customClass="RowTypeMessageController">
+                                    <group key="rootItem" width="1" alignment="left" id="gP3-oA-0DK">
+                                        <items>
+                                            <imageView width="36" alignment="left" verticalAlignment="center" id="eCN-BV-wm5"/>
+                                            <label width="77" alignment="left" verticalAlignment="center" text="Label" textAlignment="left" id="MW9-o3-peC"/>
+                                        </items>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="imageView" destination="eCN-BV-wm5" id="6P5-ra-Wd5"/>
+                                        <outlet property="titleLabel" destination="MW9-o3-peC" id="NlR-4D-8Qz"/>
+                                    </connections>
+                                </tableRow>
+                                <tableRow identifier="SendAudioCell" id="zed-5x-2oo" customClass="RowTypeMessageController">
+                                    <group key="rootItem" width="1" alignment="left" id="AXi-Dc-40D">
+                                        <items>
+                                            <label alignment="right" verticalAlignment="center" text="Label" textAlignment="right" id="OoY-Xl-dfT"/>
+                                            <imageView width="37" alignment="right" verticalAlignment="center" id="XKb-ee-O0l"/>
+                                        </items>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="imageView" destination="XKb-ee-O0l" id="RQh-VB-y7l"/>
+                                        <outlet property="titleLabel" destination="OoY-Xl-dfT" id="CAX-uV-Jp0"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                        <button width="30" height="30" alignment="left" verticalAlignment="bottom" id="B37-e2-Zgx">
+                            <connections>
+                                <action selector="faceAction:" destination="zQ9-dj-aTD" id="Aue-z6-RIG"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="faceButton" destination="B37-e2-Zgx" id="NEp-bS-rzo"/>
+                        <outlet property="table" destination="hs6-at-NJB" id="HSh-Kr-LMb"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="376" y="202.5"/>
+        </scene>
+        <!--表情-->
+        <scene sceneID="IHq-tj-MlG">
+            <objects>
+                <controller identifier="EmojiController" title="表情" id="ykF-W0-MJg" customClass="EmojiController">
+                    <items>
+                        <table alignment="left" id="hPW-qy-ZeK">
+                            <items>
+                                <tableRow identifier="RowTypeEmojiController" id="fMv-LG-kvH" customClass="RowTypeEmojiController">
+                                    <group key="rootItem" width="1" alignment="left" id="Ylf-dm-rCP">
+                                        <items>
+                                            <button width="30" height="30" alignment="left" verticalAlignment="center" title="Button" id="4cS-Fp-v9m">
+                                                <connections>
+                                                    <action selector="button1Action:" destination="fMv-LG-kvH" id="0rV-NT-mDU"/>
+                                                </connections>
+                                            </button>
+                                            <button width="30" height="30" alignment="left" verticalAlignment="center" title="Button" id="M6Q-Vj-ei5">
+                                                <connections>
+                                                    <action selector="button2Action:" destination="fMv-LG-kvH" id="FQe-R8-nb3"/>
+                                                </connections>
+                                            </button>
+                                            <button width="30" height="30" alignment="left" verticalAlignment="center" title="Button" id="LQF-nT-EH7">
+                                                <connections>
+                                                    <action selector="button3Action:" destination="fMv-LG-kvH" id="6mY-KK-Exd"/>
+                                                </connections>
+                                            </button>
+                                            <button width="30" height="30" alignment="left" verticalAlignment="center" title="Button" id="s1k-jS-TRq">
+                                                <connections>
+                                                    <action selector="button4Action:" destination="fMv-LG-kvH" id="q2i-Ay-OWW"/>
+                                                </connections>
+                                            </button>
+                                        </items>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="button1" destination="4cS-Fp-v9m" id="yqc-6M-ESH"/>
+                                        <outlet property="button2" destination="M6Q-Vj-ei5" id="ird-X2-PTL"/>
+                                        <outlet property="button3" destination="LQF-nT-EH7" id="3By-Yr-85u"/>
+                                        <outlet property="button4" destination="s1k-jS-TRq" id="T9Y-Rd-02J"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="hPW-qy-ZeK" id="19U-ip-bly"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="559" y="108"/>
+        </scene>
+        <!--群组列表-->
+        <scene sceneID="1sl-nd-Dah">
+            <objects>
+                <controller identifier="GroupsController" title="群组列表" id="0sV-UM-U4J" customClass="GroupsController">
+                    <items>
+                        <table alignment="left" id="M1l-X9-dcZ">
+                            <items>
+                                <tableRow identifier="RowType2Controller" id="D0T-Eg-Vk7" customClass="RowType2Controller">
+                                    <group key="rootItem" width="1" alignment="left" id="MBH-r9-GMM">
+                                        <items>
+                                            <label width="1" height="1" alignment="left" text="Label" textAlignment="left" id="x5a-wp-nRg"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="titleLabel" destination="x5a-wp-nRg" id="cVN-G5-kab"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="M1l-X9-dcZ" id="Thj-D5-V0I"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="640" y="432"/>
+        </scene>
+        <!--会话列表-->
+        <scene sceneID="rq3-u1-1Gt">
+            <objects>
+                <controller identifier="ConversationsController" title="会话列表" id="NYo-y5-S0Q" customClass="ConversationsController">
+                    <items>
+                        <table alignment="left" id="2CJ-xd-zOp">
+                            <items>
+                                <tableRow identifier="RowType2Controller" id="ZhA-bv-L4h" customClass="RowType2Controller">
+                                    <group key="rootItem" width="1" alignment="left" id="UIe-ra-A0k">
+                                        <items>
+                                            <label width="1" height="1" alignment="left" text="Label" textAlignment="left" id="k5y-o1-2JC"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="titleLabel" destination="k5y-o1-2JC" id="zBK-Mn-eCK"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="2CJ-xd-zOp" id="I2b-vg-83z"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="140" y="432"/>
+        </scene>
+        <!--好友列表-->
+        <scene sceneID="EJl-GY-baV">
+            <objects>
+                <controller identifier="FriendsController" title="好友列表" id="dxr-fP-dnW" customClass="FriendsController">
+                    <items>
+                        <table alignment="left" id="LNa-1n-blz">
+                            <items>
+                                <tableRow identifier="RowType2Controller" id="Njc-zV-Dhz" customClass="RowType2Controller">
+                                    <group key="rootItem" width="1" alignment="left" id="j3s-Jm-A4L">
+                                        <items>
+                                            <label width="1" height="1" alignment="center" verticalAlignment="center" text="Label" textAlignment="left" id="vyY-q0-j0q">
+                                                <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="titleLabel" destination="vyY-q0-j0q" id="A8p-RW-V5S"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="LNa-1n-blz" id="MZo-yT-nhH"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="387" y="489"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="178" y="727"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController"/>
+            </objects>
+            <point key="canvasLocation" x="459" y="727"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+</document>
