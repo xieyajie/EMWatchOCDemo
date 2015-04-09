@@ -11,8 +11,12 @@
 #import "Emoji.h"
 #import "RowTypeEmojiController.h"
 #import "ConvertToCommonEmoticonsHelper.h"
+#import "ChatController.h"
 
 @interface EmojiController()<RowTypeEmojiDelegate>
+{
+    id _chatController;
+}
 
 @end
 
@@ -23,6 +27,7 @@
     [super awakeWithContext:context];
     
     // Configure interface objects here.
+    _chatController = context;
 }
 
 - (void)willActivate {
@@ -111,7 +116,7 @@
 {
     if ([string length] > 0) {
         NSString *willSendText = [ConvertToCommonEmoticonsHelper convertToCommonEmoticons:string];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"sendTextMessage" object:willSendText];
+        [(ChatController *)_chatController sendText:willSendText];
     }
     
     [self dismissController];

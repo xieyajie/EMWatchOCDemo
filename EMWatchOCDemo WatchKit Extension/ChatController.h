@@ -35,4 +35,6 @@ typedef enum{
 
 - (IBAction)faceAction:(id)sender;
 
+- (void)sendText:(NSString *)text;
+
 @end

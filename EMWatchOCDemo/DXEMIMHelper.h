@@ -15,6 +15,9 @@
 #define KNOTIFICATION_CHANGE_FRIEND @"friendsChange"
 #define KNOTIFICATION_CHANGE_GROUP @"groupsChange"
 
+#define KDEFAULT_USERNAME @"awuser0"
+#define KDEFAULT_PASSWORD @"123456"
+
 @interface DXEMIMHelper : NSObject<EMChatManagerDelegate>
 {
     NSDate *_lastPlaySoundDate;

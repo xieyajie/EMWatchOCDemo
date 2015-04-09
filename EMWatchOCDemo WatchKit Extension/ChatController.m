@@ -49,7 +49,6 @@ typedef enum {
     // Configure interface objects here.
     _chatter = [context objectForKey:@"chatter"];
     _isGroup = [[context objectForKey:@"isGroup"] boolValue];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sendText:) name:@"sendTextMessage" object:nil];
     
     [super awakeWithContext:context];
     
@@ -74,7 +73,7 @@ typedef enum {
 
 - (void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex
 {
-    MessageModel *model = self.dataSoure[rowIndex];
+//    MessageModel *model = self.dataSoure[rowIndex];
 }
 
 #pragma mark - private
@@ -168,9 +167,8 @@ typedef enum {
 
 #pragma mark - action
 
-- (void)sendText:(NSNotification *)notification
+- (void)sendText:(NSString *)text
 {
-    NSString *text = (NSString *)notification.object;
     MessageModel *model = [[MessageModel alloc] init];
     model.isSender = YES;
     model.type = MessageTypeText;
@@ -181,16 +179,17 @@ typedef enum {
     
     [WKInterfaceController openParentApplication:@{@"action":@"sendText", @"text":text, @"to":_chatter, @"isGroup":[NSNumber numberWithBool:_isGroup]} reply:^(NSDictionary *replyInfo, NSError *error) {
         
-//        _willSendModel.messageId = [replyInfo objectForKey:@"messageId"];
-//        NSError *merror = [replyInfo objectForKey:@"error"];
-//        _willSendModel.messageId = [replyInfo objectForKey:@"messageId"];
-//        _willSendModel.state = merror ? MessageStateFailure : MessageStateSuccess;
+        //        _willSendModel.messageId = [replyInfo objectForKey:@"messageId"];
+        //        NSError *merror = [replyInfo objectForKey:@"error"];
+        //        _willSendModel.messageId = [replyInfo objectForKey:@"messageId"];
+        //        _willSendModel.state = merror ? MessageStateFailure : MessageStateSuccess;
     }];
 }
 
+
 - (IBAction)faceAction:(id)sender
 {
-    [self presentControllerWithName:@"EmojiController" context:nil];
+    [self presentControllerWithName:@"EmojiController" context:self];
 }
 
 @end

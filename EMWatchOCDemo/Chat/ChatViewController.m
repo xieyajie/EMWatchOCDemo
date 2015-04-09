@@ -101,8 +101,6 @@
     //注册为SDK的ChatManager的delegate
     [[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeAllMessages:) name:@"RemoveAllMessages" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(exitGroup) name:@"ExitGroup" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(insertCallMessage:) name:@"insertCallMessage" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground) name:@"applicationDidEnterBackground" object:nil];
     
@@ -609,6 +607,24 @@
     }
 }
 
+#pragma mark - EMDeviceManagerProximitySensorDelegate
+
+- (void)proximitySensorChanged:(BOOL)isCloseToUser
+{
+    //如果此时手机靠近面部放在耳朵旁，那么声音将通过听筒输出，并将屏幕变暗（省电啊）
+    if (isCloseToUser)//黑屏
+    {
+        // 使用耳机播放
+        [[EaseMob sharedInstance].deviceManager switchAudioOutputDevice:eAudioOutputDevice_earphone];
+    } else {
+        // 使用扬声器播放
+        [[EaseMob sharedInstance].deviceManager switchAudioOutputDevice:eAudioOutputDevice_speaker];
+        if (!_isPlayingAudio) {
+            [[[EaseMob sharedInstance] deviceManager] disableProximitySensor];
+        }
+    }
+}
+
 #pragma mark - EMChatBarMoreViewDelegate
 
 - (void)moreViewPhotoAction:(DXChatBarMoreView *)moreView
@@ -919,18 +935,14 @@
     [_menuController setMenuVisible:YES animated:YES];
 }
 
-- (void)exitGroup
-{
-    [self.navigationController popToViewController:self animated:NO];
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 - (void)insertCallMessage:(NSNotification *)notification
 {
     id object = notification.object;
     if (object) {
         EMMessage *message = (EMMessage *)object;
-        [self didReceiveMessage:message];
+        if([message.conversationChatter isEqualToString:_chatter]){
+            [self didReceiveMessage:message];
+        }
     }
 }
 
@@ -944,20 +956,6 @@
 
 -(void)sendTextMessage:(NSString *)textMessage
 {
-    //test code
-//    for (int i = 0; i < 500; i++) {
-//        NSString *sender = [NSString stringWithFormat:@"sender%i", i];
-//        for (int j = 0; j < 10; j++) {
-//            NSString *str = [NSString stringWithFormat:@"text%i_%i", i, j];
-//            EMChatText *text = [[EMChatText alloc] initWithText:str];
-//            EMTextMessageBody *body = [[EMTextMessageBody alloc] initWithChatObject:text];
-//            EMMessage *retureMsg = [[EMMessage alloc] initWithReceiver:@"899" sender:sender bodies:[NSArray arrayWithObject:body]];
-//            retureMsg.requireEncryption = NO;
-//            retureMsg.isGroup = NO;
-//            [[EaseMob sharedInstance].chatManager asyncSendMessage:retureMsg progress:nil];
-//        }
-//    }
-
     EMMessage *tempMessage = [ChatSendHelper sendTextMessageWithString:textMessage
                                                             toUsername:_conversation.chatter
                                                            isChatGroup:_isChatGroup
@@ -1002,23 +1000,6 @@
             [[EaseMob sharedInstance].chatManager sendHasReadResponseForMessage:message];
         }
     });
-}
-
-#pragma mark - EMDeviceManagerProximitySensorDelegate
-
-- (void)proximitySensorChanged:(BOOL)isCloseToUser{
-    //如果此时手机靠近面部放在耳朵旁，那么声音将通过听筒输出，并将屏幕变暗（省电啊）
-    if (isCloseToUser)//黑屏
-    {
-        // 使用耳机播放
-        [[EaseMob sharedInstance].deviceManager switchAudioOutputDevice:eAudioOutputDevice_earphone];
-    } else {
-        // 使用扬声器播放
-        [[EaseMob sharedInstance].deviceManager switchAudioOutputDevice:eAudioOutputDevice_speaker];
-        if (!_isPlayingAudio) {
-            [[[EaseMob sharedInstance] deviceManager] disableProximitySensor];
-        }
-    }
 }
 
 @end

@@ -119,9 +119,9 @@
             
             if (![easemob.chatManager isLoggedIn]) {
                 EMError *error = nil;
-                [easemob.chatManager loginWithUsername:@"awuser0" password:@"123456" error:&error];
+                [easemob.chatManager loginWithUsername:KDEFAULT_USERNAME password:KDEFAULT_PASSWORD error:&error];
                 if (!error) {
-                    reply(@{@"username":@"awuser0", @"password":@"123456"});
+                    reply(@{@"username":KDEFAULT_USERNAME, @"password":KDEFAULT_PASSWORD});
                 }
                 else{
                     NSError *reError = [NSError errorWithDomain:error.description code:error.errorCode userInfo:nil];
@@ -270,12 +270,16 @@
             EMMessage *message = [[EMMessage alloc] initWithReceiver:to bodies:[NSArray arrayWithObject:body]];
             message.requireEncryption = NO;
             message.isGroup = isGroup;
-            [easemob.chatManager asyncSendMessage:message progress:nil prepare:^(EMMessage *message, EMError *error) {
-                NSError *reError = [NSError errorWithDomain:error.description code:error.errorCode userInfo:nil];
-                reply(@{@"error":reError, @"messageId":message.messageId});
-            } onQueue:nil completion:^(EMMessage *message, EMError *error) {
-                NSError *reError = [NSError errorWithDomain:error.description code:error.errorCode userInfo:nil];
-                reply(@{@"error":reError, @"messageId":message.messageId});
+            [easemob.chatManager asyncSendMessage:message progress:nil prepare:nil onQueue:nil completion:^(EMMessage *message, EMError *error) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"insertCallMessage" object:message];
+                if (!error) {
+                    reply(@{@"messageId":message.messageId});
+                }
+                else{
+                    NSError *reError = [NSError errorWithDomain:error.description code:error.errorCode userInfo:nil];
+                    reply(@{@"error":reError, @"messageId":message.messageId});
+                }
+                
             } onQueue:nil];
         }
     }

@@ -159,11 +159,11 @@
     BOOL isLogin = [[EaseMob sharedInstance].chatManager isLoggedIn];
     if (!isLogin) {
         [self showHudInView:self.view hint:@"正在登录..."];
-        [[EaseMob sharedInstance].chatManager asyncRegisterNewAccount:@"awuser0" password:@"123456" withCompletion:^(NSString *username, NSString *password, EMError *error) {
+        [[EaseMob sharedInstance].chatManager asyncRegisterNewAccount:KDEFAULT_USERNAME password:KDEFAULT_PASSWORD withCompletion:^(NSString *username, NSString *password, EMError *error) {
             if (error) {
                 if (error.errorCode == EMErrorServerDuplicatedAccount || !error) {
                     EMError *loginError = nil;
-                    [[EaseMob sharedInstance].chatManager loginWithUsername:@"awuser0" password:@"123456" error:&loginError];
+                    [[EaseMob sharedInstance].chatManager loginWithUsername:KDEFAULT_USERNAME password:KDEFAULT_PASSWORD error:&loginError];
                     if (loginError && loginError.errorCode != EMErrorServerTooManyOperations) {
                         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"错误" message:@"登录失败,请重新登录" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
                         [alertView show];
