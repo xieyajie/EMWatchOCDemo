@@ -32,7 +32,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="146" y="129"/>
+            <point key="canvasLocation" x="207" y="129"/>
         </scene>
         <!--聊天-->
         <scene sceneID="Len-lO-9n0">
@@ -125,7 +125,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="522" y="362"/>
+            <point key="canvasLocation" x="637" y="426"/>
         </scene>
         <!--表情-->
         <scene sceneID="IHq-tj-MlG">
@@ -229,7 +229,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="330" y="129"/>
+            <point key="canvasLocation" x="377" y="129"/>
         </scene>
         <!--好友列表-->
         <scene sceneID="EJl-GY-baV">
@@ -258,7 +258,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="522" y="129"/>
+            <point key="canvasLocation" x="611" y="129"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
