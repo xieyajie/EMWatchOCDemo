@@ -11,7 +11,13 @@
 
 @interface RowTypeMessageController : NSObject
 
-@property (weak, nonatomic) IBOutlet WKInterfaceButton *resendButton;
+//@property (weak, nonatomic) IBOutlet WKInterfaceButton *resendButton;
+
+@property (weak, nonatomic) IBOutlet WKInterfaceGroup *cellGroup;
+
+@property (weak, nonatomic) IBOutlet WKInterfaceGroup *contentGroup;
+
+@property (weak, nonatomic) IBOutlet WKInterfaceImage *headerImageView;
 
 @property (weak, nonatomic) IBOutlet WKInterfaceImage *imageView;
 

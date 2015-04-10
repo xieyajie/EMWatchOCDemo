@@ -59,7 +59,6 @@
     self.window.rootViewController = navigationController;
     
     [self.window makeKeyAndVisible];
-    [homeController loginAction:nil];
     
     return YES;
 }

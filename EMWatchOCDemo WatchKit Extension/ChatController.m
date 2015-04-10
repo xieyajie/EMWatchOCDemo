@@ -155,10 +155,13 @@ typedef enum {
         NSString *didReceiveText = [ConvertToCommonEmoticonsHelper
                                     convertToSystemEmoticons:model.content];
         [rowController.titleLabel setText:didReceiveText];
+        CGFloat width = [WKInterfaceDevice currentDevice].screenBounds.size.width;
+        CGFloat height = [didReceiveText boundingRectWithSize:CGSizeMake(width - 70, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15.0]} context:nil].size.height + 30;
+        [rowController.cellGroup setHeight:height];
     }
     else if (model.type == MessageTypeAudio) {
         [rowController.titleLabel setText:[NSString stringWithFormat:@"%i", model.length]];
-        [rowController .imageView setImageNamed:@"audio"];
+        [rowController.imageView setImageNamed:@"audio"];
     }
     else {
         [rowController.imageView setImageData:model.thumbnailImageData];

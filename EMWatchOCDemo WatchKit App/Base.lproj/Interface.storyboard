@@ -42,35 +42,61 @@
                         <table alignment="left" id="hs6-at-NJB">
                             <items>
                                 <tableRow identifier="ReceiveTextCell" id="2zZ-uG-uIx" customClass="RowTypeMessageController">
-                                    <group key="rootItem" width="1" alignment="left" id="bsK-a5-ffm">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" id="bsK-a5-ffm">
                                         <items>
-                                            <label alignment="left" verticalAlignment="center" text="Label" numberOfLines="5" id="IzH-95-GnZ"/>
+                                            <imageView width="30" height="30" alignment="left" verticalAlignment="center" image="receiver.png" id="KGE-7X-kwC"/>
+                                            <group alignment="left" verticalAlignment="center" backgroundImage="receiver_bg" id="8jg-hU-GX3">
+                                                <items>
+                                                    <label alignment="left" verticalAlignment="center" text="Label" numberOfLines="0" minimumScaleFactor="0.50000000000000011" id="IzH-95-GnZ">
+                                                        <color key="textColor" red="0.062745101749897003" green="0.011764707043766975" blue="0.011764707043766975" alpha="1" colorSpace="deviceRGB"/>
+                                                        <fontDescription key="font" type="system" pointSize="15"/>
+                                                    </label>
+                                                </items>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <edgeInsets key="margins" left="15" right="10" top="3" bottom="10"/>
+                                            </group>
                                         </items>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </group>
                                     <connections>
+                                        <outlet property="cellGroup" destination="bsK-a5-ffm" id="raL-Lk-B25"/>
+                                        <outlet property="contentGroup" destination="8jg-hU-GX3" id="925-E7-5aN"/>
+                                        <outlet property="headerImageView" destination="KGE-7X-kwC" id="bgf-lg-Qvr"/>
                                         <outlet property="titleLabel" destination="IzH-95-GnZ" id="vZ4-mL-qjW"/>
                                     </connections>
                                 </tableRow>
                                 <tableRow identifier="SendTextCell" id="vP0-1l-por" customClass="RowTypeMessageController">
-                                    <group key="rootItem" width="1" alignment="left" id="khb-Ne-6d1">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" id="khb-Ne-6d1">
                                         <items>
-                                            <label alignment="right" verticalAlignment="center" text="Label" numberOfLines="5" id="dRJ-Q6-dOw"/>
+                                            <group alignment="right" verticalAlignment="center" backgroundImage="sender_bg" id="FYS-lF-cQv">
+                                                <items>
+                                                    <label alignment="right" verticalAlignment="center" text="Label" numberOfLines="5" minimumScaleFactor="0.50000000000000011" id="dRJ-Q6-dOw">
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="font" type="system" pointSize="15"/>
+                                                    </label>
+                                                </items>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <edgeInsets key="margins" left="5" right="15" top="4" bottom="10"/>
+                                            </group>
+                                            <imageView width="30" height="30" alignment="right" verticalAlignment="center" image="sender.png" id="Qmw-Ob-LN6"/>
                                         </items>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </group>
                                     <connections>
+                                        <outlet property="headerImageView" destination="Qmw-Ob-LN6" id="owQ-0L-9Fg"/>
                                         <outlet property="titleLabel" destination="dRJ-Q6-dOw" id="iD6-T1-ySO"/>
                                     </connections>
                                 </tableRow>
                                 <tableRow identifier="ReceiveImageCell" id="Doz-MK-vNy" customClass="RowTypeMessageController">
                                     <group key="rootItem" width="1" alignment="left" id="Gh7-2s-5y7">
                                         <items>
+                                            <imageView width="30" height="30" alignment="left" verticalAlignment="center" image="receiver.png" id="c6x-tX-NUD"/>
                                             <imageView alignment="left" verticalAlignment="center" id="fnC-hH-017"/>
                                         </items>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </group>
                                     <connections>
+                                        <outlet property="headerImageView" destination="c6x-tX-NUD" id="6UA-oE-r08"/>
                                         <outlet property="imageView" destination="fnC-hH-017" id="qUa-ec-iRb"/>
                                     </connections>
                                 </tableRow>
@@ -78,22 +104,26 @@
                                     <group key="rootItem" width="1" alignment="left" id="gDp-UL-doy">
                                         <items>
                                             <imageView alignment="right" verticalAlignment="center" id="wQf-3I-YtY"/>
+                                            <imageView width="30" height="30" alignment="right" verticalAlignment="center" image="sender.png" id="dLG-of-H2U"/>
                                         </items>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </group>
                                     <connections>
+                                        <outlet property="headerImageView" destination="dLG-of-H2U" id="7XA-7B-dUS"/>
                                         <outlet property="imageView" destination="wQf-3I-YtY" id="TeY-sQ-0p1"/>
                                     </connections>
                                 </tableRow>
                                 <tableRow identifier="ReceiveAudioCell" id="Fgi-b0-4q1" customClass="RowTypeMessageController">
                                     <group key="rootItem" width="1" alignment="left" id="gP3-oA-0DK">
                                         <items>
+                                            <imageView width="30" height="30" alignment="left" verticalAlignment="center" image="receiver.png" id="4JP-q5-X0z"/>
                                             <imageView width="36" alignment="left" verticalAlignment="center" id="eCN-BV-wm5"/>
                                             <label width="77" alignment="left" verticalAlignment="center" text="Label" textAlignment="left" id="MW9-o3-peC"/>
                                         </items>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </group>
                                     <connections>
+                                        <outlet property="headerImageView" destination="4JP-q5-X0z" id="AnV-Vs-e4u"/>
                                         <outlet property="imageView" destination="eCN-BV-wm5" id="6P5-ra-Wd5"/>
                                         <outlet property="titleLabel" destination="MW9-o3-peC" id="NlR-4D-8Qz"/>
                                     </connections>
@@ -103,10 +133,12 @@
                                         <items>
                                             <label alignment="right" verticalAlignment="center" text="Label" textAlignment="right" id="OoY-Xl-dfT"/>
                                             <imageView width="37" alignment="right" verticalAlignment="center" id="XKb-ee-O0l"/>
+                                            <imageView width="30" height="30" alignment="right" verticalAlignment="center" image="sender.png" id="Myt-Qh-3lu"/>
                                         </items>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </group>
                                     <connections>
+                                        <outlet property="headerImageView" destination="Myt-Qh-3lu" id="YSH-W4-Uou"/>
                                         <outlet property="imageView" destination="XKb-ee-O0l" id="RQh-VB-y7l"/>
                                         <outlet property="titleLabel" destination="OoY-Xl-dfT" id="CAX-uV-Jp0"/>
                                     </connections>
@@ -125,7 +157,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="637" y="426"/>
+            <point key="canvasLocation" x="534" y="510.5"/>
         </scene>
         <!--表情-->
         <scene sceneID="IHq-tj-MlG">
@@ -202,7 +234,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="330" y="362"/>
+            <point key="canvasLocation" x="200" y="362"/>
         </scene>
         <!--会话列表-->
         <scene sceneID="rq3-u1-1Gt">
@@ -281,7 +313,7 @@
             <objects>
                 <controller id="4sK-HA-Art" customClass="NotificationController"/>
             </objects>
-            <point key="canvasLocation" x="429" y="584"/>
+            <point key="canvasLocation" x="366" y="584"/>
         </scene>
     </scenes>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

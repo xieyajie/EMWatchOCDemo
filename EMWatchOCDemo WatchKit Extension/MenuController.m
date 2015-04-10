@@ -99,6 +99,7 @@
 
 - (void)refreshDataWithIsLogined:(BOOL)isLogined
 {
+    [self.dataSoure removeAllObjects];
     if (isLogined) {
         NSDictionary *conversationInfo = [NSDictionary dictionaryWithObjectsAndKeys:@"会话", @"title", nil];
         NSDictionary *friendInfo = [NSDictionary dictionaryWithObjectsAndKeys:@"好友", @"title", nil];

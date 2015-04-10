@@ -56,7 +56,8 @@
     [[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(unreadChange:) name:KNOTIFICATION_CHANGE_UNREAD object:nil];
     
-    [self unreadChange:nil];
+    [self loginAction:nil];
+//    [self unreadChange:nil];
 }
 
 - (void)didReceiveMemoryWarning {
